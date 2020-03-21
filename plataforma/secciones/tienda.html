@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDP2Games</title>
+
+    <!-- Estilos -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Adicional -->
+    <link rel="stylesheet" href="../css/aditionalStyle.css">
+</head>
+
+<body class="bg-darker text-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;">
+        <a class="navbar-brand" href="#">MPD2Games</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Tienda <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Biblioteca</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Perfil</a>
+                </li>
+            </ul>
+            <button class="btn btn-outline-light mx-1">Ingresar</button>
+            <button class="btn btn-outline-light mx-1">Registrarse</button>
+        </div>
+    </nav>
+
+    <!-- Contenido -->
+    <div class="container-fluid my-5 p-5" id="contenido">
+
+        <!-- Buscador -->
+        <div class="container">
+            <input class="form-control mx-sm-2 text-light bg-dark" type="search" placeholder="Buscar"
+                aria-label="Search">
+        </div>
+
+        <!-- Sugerencias -->
+        <div class="container my-5">
+            <div class="container m-2">Sugeridos para ti:</div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators" id="indicators"></ol>
+                <div class="carousel-inner" id="suggest"></div>
+            </div>
+        </div>
+
+        <!-- Catalogo -->
+        <div class="container my5">
+            <div class="container m-2">Catálogo:</div>
+            <div class="album py-2">
+                <div class="container">
+                    <div class="row" id="catalog"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-muted">
+        <div class="container">
+            <p>Por: Diego Velez</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <!-- JQuery -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Creacion -->
+    <script src="../js/initTienda.js"></script>
+</body>
+
+</html>
