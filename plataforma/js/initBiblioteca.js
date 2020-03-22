@@ -10,7 +10,7 @@ function init(){
             <div class="card bg-dark text-white">
                 <img src="https://picsum.photos/1000/300" class="card-img" alt="...">
                 <div class="card-img-overlay">
-                    <h3 class="card-title">Titulo</h3>
+                    <h3 class="card-title">Game Name</h3>
                     <p class="card-text text-muted">última vez: 01 ene 2020</p>
                     <button class="btn btn-light">Iniciar&rarr;</button>
                 </div>
@@ -33,7 +33,7 @@ function init(){
                         <div class="card-body p-5">
                             <div class="row justify-content-between">
                                 <div>
-                                    <h3 class="card-title">Titulo</h3>
+                                    <h3 class="card-title">Game Name</h3>
                                     <p class="text-muted">Horas Jugadas: 0h 0min</p>
                                 </div>
                                 <div class="btn-group" role="group">

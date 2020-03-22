@@ -1,7 +1,6 @@
 $(document).ready(init);
 
 function init(){
-    console.log("iniciando");
 
     // construir sugerencias
     suggest = "";
@@ -19,9 +18,9 @@ function init(){
                 <div class="col">
                     <img src="https://picsum.photos/1000/500" class="d-block w-100" alt="...">
                 </div>
-                <div class="col-4 text-light bg-dark container">
+                <div class="col-md-4 text-light bg-dark container">
                     <div class="container p-3">
-                        <div class="title">Titulo</div>
+                        <div class="title">Game Name</div>
                         <div> Descripcion, Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
                             illo perferendis! Eveniet quibusdam hic veritatis quos impedit obcaecati
                             minima labore doloribus nostrum temporibus harum, dolorum repudiandae facere
@@ -47,7 +46,7 @@ function init(){
             <div class="card mb-4 bg-dark">
                 <img src="https://picsum.photos/500/255" alt="">
                 <div class="card-body">
-                    <div class="title">Titulo</div>
+                    <div class="title">Game Name</div>
                     <p class="card-text">This is a wider card with supporting text below as a natural
                         lead-in to additional content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
