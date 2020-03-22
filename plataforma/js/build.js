@@ -3,7 +3,7 @@ function init(section) {
     // construir Navbar
     document.getElementById("body").innerHTML = `
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black; max-height: 100px;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: black; max-height: 100px;">
         <a class="navbar-brand" href="../index.html"> <img src="../imgs/MPD2G.png" alt="" height="100rem"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -237,6 +237,50 @@ function initLibrary() {
     }
     document.getElementById("library").innerHTML = library;
 
+}
+
+function initProfile(){
+    document.getElementById("body").innerHTML += `    
+    <div class="container my-2 p-md-5" id="contenido">
+        <!-- Informacion de la Cuenta -->
+        <div class="card bg-dark my-5 info">
+            <div class="card-body p-md-5">
+                <h1 class="card-title"> Información de la Cuenta </h1>
+                <div class="card-text px-md-5">
+                    <div class="row">
+                        <div class="col px-md-5">
+                            <div class="row justify-content-between"> <strong>Usuario: </strong> Diefex </div>
+                            <div class="row justify-content-between"> <strong>E-mail: </strong> diefex57@gmail.com </div>
+                            <div class="row justify-content-between"> <strong>ID: </strong> 00000001 </div>
+                        </div>
+                        <div class="col px-md-5">
+                            <div class="row justify-content-between"> <strong>Juegos en Propiedad: </strong> 10 </div>
+                            <div class="row justify-content-between"> <strong>Máximo Puntaje: </strong> 0000 </div>
+                            <div class="row justify-content-between"> <strong>Juego más Jugado: </strong> Ningúno </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Informacion Personal -->
+        <div class="card bg-dark my-5 info">
+            <div class="card-body p-md-5">
+                <h1 class="card-title"> Información Personal </h1>
+                <div class="card-text px-md-5">
+                    <div class="row">
+                        <div class="col px-md-5">
+                            <div class="row justify-content-between"> <strong>Nombre: </strong> Diego Velez </div>
+                            <div class="row justify-content-between"> <strong>Edad: </strong> 19 </div>
+                        </div>
+                        <div class="col px-md-5">
+                            <div class="row justify-content-between"> <strong>Lenguage Preferido: </strong> Español </div>
+                            <div class="row justify-content-between"> <strong>País: </strong> Colombia </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
 }
 
 function initGame() {
