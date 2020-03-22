@@ -1,96 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MDP2Games - Biblioteca</title>
-    
-        <!-- Estilos -->
-    
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <!-- Adicional -->
-        <link rel="stylesheet" href="../css/aditionalStyle.css">
-    
-        <!-- favicon -->
-        <link rel="icon" type="image/png" href="../imgs/2G.png" />
-    </head>
-    
-    <body class="bg-darker text-light">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black; max-height: 100px;">
-            <a class="navbar-brand" href="#"> <img src="../imgs/MPD2G.png" alt="" height="100rem"> </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="tienda.html">Tienda</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Biblioteca <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="perfil.html">Perfil</a>
-                    </li>
-                </ul>
-                <button class="btn btn-outline-light mx-1">Ingresar</button>
-                <button class="btn btn-outline-light mx-1">Registrarse</button>
-            </div>
-        </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDP2Games - Biblioteca</title>
 
-    <!-- Contenido -->
-    <div class="container-fluid my-2 p-5" id="contenido">
+    <!-- Estilos -->
 
-        <!-- Inicio Rapido -->
-        <div class="container mb-5">
-            <div class="container m-1">
-                <h3>Inicio Rápido</h3>
-            </div>
-            <div class="row justify-content-between" id="fast">
-                
-                <div class="col">
-                    <div class="card bg-dark text-white">
-                        <img src="https://picsum.photos/1000/300" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">Titulo</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text">última vez: 01 ene 2020</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Adicional -->
+    <link rel="stylesheet" href="../css/aditionalStyle.css">
 
-        <!-- Buscador -->
-        <div class="container my-5">
-            <input class="form-control mx-sm-2 text-light bg-dark" type="search"
-                placeholder="Busca juegos en tu biblioteca" aria-label="Search">
-        </div>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../imgs/2G.png">
+</head>
 
-        <!-- Biblioteca -->
-        <div class="container my-5">
-            <div class="container m-1">
-                <h3>Biblioteca</h3>
-            </div>
-            <div class="album py-2">
-                <div class="container" id="library"></div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Footer -->
-    <footer class="text-muted">
-        <div class="container">
-            <p>Por: Diego Velez</p>
-        </div>
-    </footer>
-
+<body class="bg-darker text-light" id="body">
     <!-- Scripts -->
 
     <!-- JQuery -->
@@ -98,7 +25,8 @@
     <!-- Bootstrap -->
     <script src="../js/bootstrap.min.js"></script>
     <!-- Creacion -->
-    <script src="../js/initBiblioteca.js"></script>
+    <script src="../js/build.js"></script>
+    <script type="text/javascript">init("Biblioteca");</script>
 </body>
 
 </html>
