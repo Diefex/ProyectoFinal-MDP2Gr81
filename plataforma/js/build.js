@@ -128,24 +128,26 @@ function initStore() {
     document.getElementById("indicators").innerHTML = indicators;
 
     // construir catalogo
+    games = JSON.parse(localStorage.getItem('games'));
     catalog = "";
-    for (let i = 0; i < 10; i++) {
+    i = 0;
+    games.forEach(game => {
         catalog += `
-        <div class="col-md-4">
-            <div class="card mb-4 bg-dark">
+        <div class="col-md-4 py-3">
+            <div class="card mb-4 bg-dark h-100">
                 <img src="https://picsum.photos/50`+i+`/255" alt="">
                 <div class="card-body">
-                    <div class="title">Game Name</div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="price">$1000 COL</div>
-                        <button class="btn btn-outline-light">Ver&rarr;</button>
+                    <div class="title">`+game.name+`</div>
+                    <p class="card-text">`+game.description+`</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div class="price">$`+game.price+` COL</div>
+                        <a href="#"><button onclick="initGame(`+i+`)" class="btn btn-outline-light">Ver&rarr;</button></a>
                     </div>
                 </div>
             </div>
         </div>`;
-    }
+        i++;
+    });
     document.getElementById("catalog").innerHTML = catalog;
 }
 
@@ -283,9 +285,10 @@ function initProfile(){
     </div>`;
 }
 
-function initGame() {
-    document.getElementById("body").innerHTML += `<div class="container-fluid p-0" id="contenido"></div>`;
-    document.getElementById("contenido").innerHTML = `
+function initGame(i) {
+    game = JSON.parse(localStorage.getItem('games'))[i];
+    document.getElementById("contenido").outerHTML = `
+    <div class="container-fluid p-0" id="contenido">
     <!-- Capturas -->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" id="screenshots"></div>
@@ -301,30 +304,25 @@ function initGame() {
 
     <!-- Informacion -->
     <div class="container my-5">
-        <h1 class="display-3">Game Name</h1>
+        <h1 class="display-3">`+game.name+`</h1>
         <div class="text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reprehenderit perferendis quasi ratione
-            quam, odio neque voluptate itaque, vitae libero assumenda quae quisquam mollitia quaerat perspiciatis
-            pariatur sed doloremque eius!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, dolores possimus praesentium
-            expedita itaque quo blanditiis voluptate quidem labore totam deserunt omnis eligendi in quaerat
-            voluptatem nobis animi natus quis?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus provident aperiam, eaque maiores
-            vitae deleniti officia reprehenderit a amet, illo sequi possimus fugit quam, aliquam rerum quidem
-            consequuntur. Facilis, laudantium.
+            `+game.description+`
         </div>
         <h3 class="py-3">
-            $ 1.000 COL
+            $ `+game.price+` COL
         </h3>
-        <button class="btn btn-outline-light btn-lg mb-5">Obtener&rarr;</button>
+        <div class="btn-group mb-5" role="group">
+            <button onclick="initStore()" class="btn btn-outline-light btn-sm"> &larr;Volver a la Tienda </button>
+            <button class="btn btn-outline-light btn-lg">Obtener&rarr;</button>
+        </div>
 
         <!-- Acerca -->
         <div class="my-5">
             <h4 class="my-3">Acerca del Juego:</h4>
             <div class="row">
-                <div class="col"> <strong>Desarrollador: </strong><br> nombre </div>
-                <div class="col"> <strong>Etiquetas: </strong><br> etiqueta1, etiqueta2 </div>
-                <div class="col"> <strong>Fecha de Lanzamiento: </strong><br> 01/ene/2020 </div>
+                <div class="col"> <strong>Desarrollador: </strong><br> `+game.developer+` </div>
+                <div class="col"> <strong>Etiquetas: </strong><br> `+game.tags+` </div>
+                <div class="col"> <strong>Fecha de Lanzamiento: </strong><br> `+game.date+` </div>
                 <div class="col"> <strong>Reseñas: </strong><br> positivas </div>
             </div>
         </div>
@@ -341,23 +339,23 @@ function initGame() {
             <div class="row">
                 <div class="col bg-dark mx-3 p-5">
                     <h5 class="mb-4">Mínimos:</h5>
-                    <div class="row justify-content-between"> <strong>Sistema Operativo: </strong> Windows 7/8/10 (64/32 Bits) </div>
-                    <div class="row justify-content-between"> <strong>Procesador: </strong> AMD E2 6110 o equivalente </div>
-                    <div class="row justify-content-between"> <strong>RAM: </strong> 4 GB Usables </div>
-                    <div class="row justify-content-between"> <strong>Gráficos: </strong> Radeon R2 </div>
-                    <div class="row justify-content-between"> <strong>Almacenamiento: </strong> 500 MB disponibles </div>
+                    <div class="row justify-content-between"> <strong>Sistema Operativo: </strong> `+game.OS_min+` </div>
+                    <div class="row justify-content-between"> <strong>Procesador: </strong> `+game.pro_min+` o equivalente </div>
+                    <div class="row justify-content-between"> <strong>RAM: </strong> `+game.ram_min+` usables </div>
+                    <div class="row justify-content-between"> <strong>Gráficos: </strong> `+game.gra_min+` o equivalente </div>
+                    <div class="row justify-content-between"> <strong>Almacenamiento: </strong> `+game.sto_min+` disponibles </div>
                 </div>
                 <div class="col bg-dark mx-3 p-5">
                     <h5 class="mb-4">Recomendados:</h5>
-                    <div class="row justify-content-between"> <strong>Sistema Operativo: </strong> Windows 10 (64 Bits) </div>
-                    <div class="row justify-content-between"> <strong>Procesador: </strong> Intel Core i5 a 3,4 GHz o equivalente </div>
-                    <div class="row justify-content-between"> <strong>RAM: </strong> 8 GB Usables </div>
-                    <div class="row justify-content-between"> <strong>Gráficos: </strong> GeForce GTX 660 (2048 MB) / Radeon HD 7970 </div>
-                    <div class="row justify-content-between"> <strong>Almacenamiento: </strong> 500 MB disponibles </div>
+                    <div class="row justify-content-between"> <strong>Sistema Operativo: </strong> `+game.OS_rec+` </div>
+                    <div class="row justify-content-between"> <strong>Procesador: </strong> `+game.pro_rec+` o equivalente </div>
+                    <div class="row justify-content-between"> <strong>RAM: </strong> `+game.ram_rec+` usables </div>
+                    <div class="row justify-content-between"> <strong>Gráficos: </strong> `+game.gra_rec+` o equivalente </div>
+                    <div class="row justify-content-between"> <strong>Almacenamiento: </strong> `+game.sto_rec+` disponibles </div>
                 </div>
             </div>
         </div>
-    </div>`;
+    </div></div>`;
 
     // construir capturas
     screenshots = "";
