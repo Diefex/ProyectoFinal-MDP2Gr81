@@ -50,6 +50,7 @@ $("#reset").click(function(){
     var s=document.getElementById("inicio").innerHTML='';
     $('canvas').hide(0);
     $("#principal").show(0);
+    $("#reset").css("display", "none");
 });
 
 $("#ventana").click(function(){
@@ -178,7 +179,7 @@ function posMouse(canvas, evt){
 function iniciar(arma1, arma2, arma3, arma4){
     
     if(canvas){
-        $("#reset").css("display", "none");
+        
         fin=false;
         run=true;
         
@@ -278,12 +279,12 @@ function puntero() {
     context.lineTo(mouse.x, mouse.y-25);
     context.moveTo(mouse.x,mouse.y+5);
     context.lineTo(mouse.x, mouse.y+25);
-    
+    context.moveTo(mouse.x, mouse.y);
     
 }
 
 function ejecutar(){
-    console.log("llegando", "fin:",fin, run)
+    
     if(run){
         var verificar=0;
         canvas.width = canvas.width;
@@ -328,7 +329,7 @@ function ejecutar(){
                 run=false;
             }
         }
-        setTimeout(ejecutar,5);
+        setTimeout(ejecutar,22);
     }else{
         if(fin){
             terminar();
