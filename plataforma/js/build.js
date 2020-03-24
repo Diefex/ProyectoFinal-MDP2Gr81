@@ -4,7 +4,7 @@ function init(section) {
     document.getElementById("body").innerHTML = `
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: black; max-height: 100px;">
-        <a class="navbar-brand" href="../index.html"> <img src="../imgs/MPD2G.png" alt="" height="100rem"> </a>
+        <a class="navbar-brand" href="index.html"> <img src="imgs/MPD2G.png" alt="" height="100rem"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,12 +17,8 @@ function init(section) {
                 <li class="nav-item `+ (section == "Biblioteca" ? "active" : "") + `">
                     <a class="nav-link" href="`+ (section == "Biblioteca" ? "#" : "biblioteca.html") + `">Biblioteca` + (section == "Biblioteca" ? '<span class="sr-only">(current)</span>' : "") + `</a>
                 </li>
-                <li class="nav-item `+ (section == "Perfil" ? "active" : "") + `">
-                    <a class="nav-link" href="`+ (section == "Perfil" ? "#" : "perfil.html") + `">Perfil` + (section == "Perfil" ? '<span class="sr-only">(current)</span>' : "") + `</a>
-                </li>
             </ul>
-            <button class="btn btn-outline-light mx-1">Ingresar</button>
-            <button class="btn btn-outline-light mx-1">Registrarse</button>
+            <a class="text-light" href="perfil.html"><h4>`+JSON.parse(localStorage.getItem('user')).user+`</h4></a>
         </div>
     </nav>`;
 
@@ -230,7 +226,7 @@ function initLibrary() {
                                 </div>
                                 <div>
                                     <a href="juego.html"><button onclick="setGame(`+gameID+`)" class="btn btn-sm btn-outline-light">&larr;ir a la tienda</button></a>
-                                    <button onclick="window.open('../../`+game.name+`/index.html')" class="btn btn-lg btn-outline-light">Jugar&rarr;</button>
+                                    <button onclick="window.open('../`+game.name+`/index.html')" class="btn btn-lg btn-outline-light">Jugar&rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -243,6 +239,7 @@ function initLibrary() {
 }
 
 function initProfile(){
+    user = JSON.parse(localStorage.getItem('user'));
     document.getElementById("body").innerHTML += `    
     <div class="container my-2 p-md-5" id="contenido">
         <!-- Informacion de la Cuenta -->
@@ -252,14 +249,14 @@ function initProfile(){
                 <div class="card-text px-md-5">
                     <div class="row">
                         <div class="col px-md-5">
-                            <div class="row justify-content-between"> <strong>Usuario: </strong> Diefex </div>
-                            <div class="row justify-content-between"> <strong>E-mail: </strong> diefex57@gmail.com </div>
-                            <div class="row justify-content-between"> <strong>ID: </strong> 00000001 </div>
+                            <div class="row justify-content-between"> <strong>Usuario: </strong> `+user.user+` </div>
+                            <div class="row justify-content-between"> <strong>E-mail: </strong> `+user.email+` </div>
+                            <div class="row justify-content-between"> <strong>ID: </strong> `+user.id+` </div>
                         </div>
                         <div class="col px-md-5">
-                            <div class="row justify-content-between"> <strong>Juegos en Propiedad: </strong> 10 </div>
-                            <div class="row justify-content-between"> <strong>Máximo Puntaje: </strong> 0000 </div>
-                            <div class="row justify-content-between"> <strong>Juego más Jugado: </strong> Ningúno </div>
+                            <div class="row justify-content-between"> <strong>Juegos en Propiedad: </strong> `+user.games.length+` </div>
+                            <div class="row justify-content-between"> <strong>Máximo Puntaje: </strong> `+user.max_score+` </div>
+                            <div class="row justify-content-between"> <strong>Juego más Jugado: </strong> `+user.fav_game+` </div>
                         </div>
                     </div>
                 </div>
@@ -272,12 +269,12 @@ function initProfile(){
                 <div class="card-text px-md-5">
                     <div class="row">
                         <div class="col px-md-5">
-                            <div class="row justify-content-between"> <strong>Nombre: </strong> Diego Velez </div>
-                            <div class="row justify-content-between"> <strong>Edad: </strong> 19 </div>
+                            <div class="row justify-content-between"> <strong>Nombre: </strong> `+user.name+` </div>
+                            <div class="row justify-content-between"> <strong>Edad: </strong> `+user.age+` </div>
                         </div>
                         <div class="col px-md-5">
-                            <div class="row justify-content-between"> <strong>Lenguage Preferido: </strong> Español </div>
-                            <div class="row justify-content-between"> <strong>País: </strong> Colombia </div>
+                            <div class="row justify-content-between"> <strong>Lenguage Preferido: </strong> `+user.language+` </div>
+                            <div class="row justify-content-between"> <strong>País: </strong> `+user.location+` </div>
                         </div>
                     </div>
                 </div>
@@ -288,7 +285,7 @@ function initProfile(){
 
 function initGame() {
     game = JSON.parse(localStorage.getItem('game'));
-    document.getElementById("body").innerHTML = `<div class="container-fluid p-0" id="contenido"></div>`;
+    document.getElementById("body").innerHTML += `<div class="container-fluid p-0" id="contenido"></div>`;
     document.getElementById("contenido").innerHTML = `
     <!-- Capturas -->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
