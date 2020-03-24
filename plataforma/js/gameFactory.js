@@ -78,24 +78,6 @@ function createGames() {
             sto_rec: '500 MB'
         },
         {
-            name: 'Escape the COVID',
-            description: 'escapa del virus!',
-            price: 53000,
-            developer: 'Diego Velez 3',
-            tags: 'accion, puzzle, tycoon',
-            date: '23 ene 2020',
-            OS_min: 'Linux',
-            pro_min: 'intel pentium G3',
-            ram_min: '4 GB',
-            gra_min: 'Radeon R5',
-            sto_min: '50 MB',
-            OS_rec: 'Windows / Mac OS',
-            pro_rec: 'AMD Ryzen 7',
-            ram_rec: '8 GB',
-            gra_rec: 'GeForce GTX 1080Ti',
-            sto_rec: '700 MB'
-        },
-        {
             name: 'Mario en Marte',
             description: 'Mario se encuentra atrapado en el planeta rojo y debe sobrevivir el mayor tiempo posible, en el que debe esquivar una serie de rocas alienigenas para no fallar en el intento, ayudalo a sobrevivir con la ayuda de su super salto y moviendote por toda la pantalla',
             price: 11000,
@@ -148,24 +130,6 @@ function createGames() {
             ram_rec: '4 GB',
             gra_rec: 'GeForce GTX 1080Ti',
             sto_rec: '50 MB'
-        },
-        {
-            name: 'Walking Simulator 2020',
-            description: 'el juego perfecto para la cuarentena',
-            price: 1000,
-            developer: 'Diego Velez',
-            tags: 'simulacion, aventura',
-            date: '22 ene 2020',
-            OS_min: 'windows',
-            pro_min: 'intel pentium',
-            ram_min: '4 GB',
-            gra_min: 'Radeon R2',
-            sto_min: '500 MB',
-            OS_rec: 'Windows',
-            pro_rec: 'AMD Ryzen 3',
-            ram_rec: '6 GB',
-            gra_rec: 'GeForce GTX',
-            sto_rec: '500 MB'
         }
     ];
 

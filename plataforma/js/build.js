@@ -131,7 +131,7 @@ function initStore() {
         catalog += `
         <div class="col-md-4 py-3">
             <div class="card mb-4 bg-dark h-100">
-                <img src="https://picsum.photos/25`+i+`/255" alt="">
+                <img src="../`+game.name+`/Capturas/255x255.png" alt="">
                 <div class="card-body">
                     <div class="title">`+game.name+`</div>
                     <p class="card-text">`+game.description+`</p>
@@ -190,6 +190,7 @@ function initLibrary() {
         </div>`;
 
     // Construir Inicio Rapido
+
     fast = "";
     for (let i = 0; i < 2; i++) {
         fast += `
@@ -215,7 +216,7 @@ function initLibrary() {
             <div class="card bg-dark w-100 mb-3">
                 <div class="row">
                     <div class="col-2">
-                        <img src="https://picsum.photos/10`+gameID+`" alt="" class="d-block h-100">
+                        <img src="../`+game.name+`/capturas/100x100.png" alt="" class="d-block h-100">
                     </div>
                     <div class="col">
                         <div class="card-body p-5">
@@ -226,7 +227,7 @@ function initLibrary() {
                                 </div>
                                 <div>
                                     <a href="juego.html"><button onclick="setGame(`+gameID+`)" class="btn btn-sm btn-outline-light">&larr;ir a la tienda</button></a>
-                                    <button onclick="window.open('../`+game.name+`/index.html')" class="btn btn-lg btn-outline-light">Jugar&rarr;</button>
+                                    <button onclick="startGame(`+gameID+`)" class="btn btn-lg btn-outline-light">Jugar&rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -255,7 +256,6 @@ function initProfile(){
                         </div>
                         <div class="col px-md-5">
                             <div class="row justify-content-between"> <strong>Juegos en Propiedad: </strong> `+user.games.length+` </div>
-                            <div class="row justify-content-between"> <strong>Máximo Puntaje: </strong> `+user.max_score+` </div>
                             <div class="row justify-content-between"> <strong>Ultimo juego jugado: </strong> `+user.fav_game+` </div>
                         </div>
                     </div>
@@ -311,7 +311,7 @@ function initGame() {
         </h3>
         <div class="btn-group mb-5" role="group">
             <a href="tienda.html" class="btn btn-outline-light btn-lg">&larr;Volver a la Tienda</a>
-            <a class="btn btn-outline-light btn-lg">Obtener&rarr;</a>
+            <a href="biblioteca.html"><button onclick="getGame('`+game.name+`')" class="btn btn-outline-light btn-lg">Obtener&rarr;</button></a>
         </div>
 
         <!-- Acerca -->
@@ -357,10 +357,10 @@ function initGame() {
 
     // construir capturas
     screenshots = "";
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
         screenshots += `
         <div class="carousel-item `+ (i == 0 ? "active" : "") + `">
-            <img src="https://picsum.photos/160`+ i + `/400" class="d-block w-100" alt="https://picsum.photos/1600/400">
+            <img src="../`+game.name+`/capturas/1600x400_`+(i+1)+`.png" class="d-block w-100" alt="">
         </div>`;
     }
     document.getElementById("screenshots").innerHTML = screenshots;
