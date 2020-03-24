@@ -131,7 +131,7 @@ function initStore() {
         catalog += `
         <div class="col-md-4 py-3">
             <div class="card mb-4 bg-dark h-100">
-                <img src="https://picsum.photos/50`+i+`/255" alt="">
+                <img src="https://picsum.photos/25`+i+`/255" alt="">
                 <div class="card-body">
                     <div class="title">`+game.name+`</div>
                     <p class="card-text">`+game.description+`</p>
@@ -256,7 +256,7 @@ function initProfile(){
                         <div class="col px-md-5">
                             <div class="row justify-content-between"> <strong>Juegos en Propiedad: </strong> `+user.games.length+` </div>
                             <div class="row justify-content-between"> <strong>Máximo Puntaje: </strong> `+user.max_score+` </div>
-                            <div class="row justify-content-between"> <strong>Juego más Jugado: </strong> `+user.fav_game+` </div>
+                            <div class="row justify-content-between"> <strong>Ultimo juego jugado: </strong> `+user.fav_game+` </div>
                         </div>
                     </div>
                 </div>
