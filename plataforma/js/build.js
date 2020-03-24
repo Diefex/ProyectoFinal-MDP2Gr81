@@ -18,7 +18,7 @@ function init(section) {
                     <a class="nav-link" href="`+ (section == "Biblioteca" ? "#" : "biblioteca.html") + `">Biblioteca` + (section == "Biblioteca" ? '<span class="sr-only">(current)</span>' : "") + `</a>
                 </li>
             </ul>
-            <a class="text-light" href="perfil.html"><h4>`+JSON.parse(localStorage.getItem('user')).user+`</h4></a>
+            <a class="text-light" href="perfil.html"><h1 class="airmill-o">`+JSON.parse(localStorage.getItem('user')).user+`</h1></a>
         </div>
     </nav>`;
 
@@ -101,9 +101,9 @@ function initStore() {
                 <div class="col">
                     <img src="../`+games[id].name+`/capturas/1000x300.png" class="d-block w-100" alt="...">
                 </div>
-                <div class="col-md-4 text-light bg-dark container">
+                <div class="col-md-4 text-light bg-dark container" style="min-height: 40vh">
                     <div class="container p-3">
-                        <div class="title">`+games[id].name+`</div>
+                        <div class="title airmill">`+games[id].name+`</div>
                         <div>`+games[id].description+`</div>
 
                         <div class="row justify-content-between p-5">
@@ -129,7 +129,7 @@ function initStore() {
             <div class="card mb-4 bg-dark h-100">
                 <img src="../`+game.name+`/Capturas/255x255.png" alt="">
                 <div class="card-body">
-                    <div class="title">`+game.name+`</div>
+                    <div class="title airmill">`+game.name+`</div>
                     <p class="card-text">`+game.description+`</p>
                     <div class="d-flex justify-content-between align-items-end">
                         <div class="price">$`+game.price+` COL</div>
@@ -188,7 +188,7 @@ function initLibrary() {
             <div class="card bg-dark text-white">
                 <img src="../`+gameName+`/capturas/1000x300.png" class="card-img" alt="...">
                 <div class="card-img-overlay">
-                    <h3 class="card-title">`+gameName+`</h3>
+                    <h2 class="card-title airmill">`+gameName+`</h2>
                     <button onclick="startGame(`+user.last_game[i]+`)" class="btn btn-light">Iniciar&rarr;</button>
                 </div>
             </div>
@@ -211,7 +211,7 @@ function initLibrary() {
                         <div class="card-body p-5">
                             <div class="row justify-content-between">
                                 <div>
-                                    <h3 class="card-title">`+game.name+`</h3>
+                                    <h2 class="card-title airmill">`+game.name+`</h2>
                                 </div>
                                 <div>
                                     <a href="juego.html"><button onclick="setGame(`+gameID+`)" class="btn btn-sm btn-outline-light">&larr;ir a la tienda</button></a>
@@ -290,7 +290,7 @@ function initGame() {
 
     <!-- Informacion -->
     <div class="container my-5">
-        <h1 class="display-3">`+game.name+`</h1>
+        <h1 class="display-3 airmill">`+game.name+`</h1>
         <div class="text-justify">
             `+game.description+`
         </div>
@@ -311,12 +311,6 @@ function initGame() {
                 <div class="col"> <strong>Fecha de Lanzamiento: </strong><br> `+game.date+` </div>
                 <div class="col"> <strong>Reseñas: </strong><br> positivas </div>
             </div>
-        </div>
-
-        <!-- Calificaciones -->
-        <div class="my-5">
-            <h4 class="my-3">Calificaciones:</h4>
-            <div class="row" id="ratings"></div>
         </div>
 
         <!-- Requisitos -->
@@ -353,21 +347,6 @@ function initGame() {
     }
     document.getElementById("screenshots").innerHTML = screenshots;
 
-    ratings = "";
-    for (let i = 0; i < 3; i++) {
-        ratings += `
-        <div class="col"> 
-            <div class="card bg-dark">
-                <div class="card-body">
-                    <h5 class="card-title">Nombre</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">01 ene 2020</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4>10/10</h4>
-                </div>
-            </div> 
-        </div>`;
-    }
-    document.getElementById("ratings").innerHTML = ratings;
 }
 
 function setGame(i){

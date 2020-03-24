@@ -14,3 +14,21 @@
 .info{
     font-size: x-large;
 }
+
+.airmill{
+    font-family: airmill, Helvetica, sans-serif;
+}
+
+.airmill-o{
+    font-family: airmill-o, Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: airmill;
+    src: url("../fonts/air_mitalic.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: airmill-o;
+    src: url("../fonts/airmill_o.ttf") format("opentype");
+}
