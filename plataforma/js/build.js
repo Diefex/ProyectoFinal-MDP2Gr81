@@ -141,7 +141,7 @@ function initStore() {
                     <p class="card-text">`+game.description+`</p>
                     <div class="d-flex justify-content-between align-items-end">
                         <div class="price">$`+game.price+` COL</div>
-                        <a href="#"><button onclick="initGame(`+i+`)" class="btn btn-outline-light">Ver&rarr;</button></a>
+                        <a href="juego.html"><button onclick="setGame(`+i+`)" class="btn btn-outline-light">Ver&rarr;</button></a>
                     </div>
                 </div>
             </div>
@@ -152,6 +152,8 @@ function initStore() {
 }
 
 function initLibrary() {
+    user = JSON.parse(localStorage.getItem('user'));
+
     document.getElementById("body").innerHTML += `<div class="container-fluid my-2 p-md-5" id="contenido"></div>`;
     document.getElementById("contenido").innerHTML = `
     <!-- Inicio Rapido -->
@@ -210,25 +212,25 @@ function initLibrary() {
 
     // Construir biblioteca
     library = "";
-    for (let i = 0; i < 10; i++) {
+    user.games.forEach(gameID => {
+        game = JSON.parse(localStorage.getItem('games'))[gameID];
         library += `
         <div class="row">
             <div class="card bg-dark w-100 mb-3">
                 <div class="row">
                     <div class="col-2">
-                        <img src="https://picsum.photos/10`+i+`" alt="" class="d-block h-100">
+                        <img src="https://picsum.photos/10`+gameID+`" alt="" class="d-block h-100">
                     </div>
                     <div class="col">
                         <div class="card-body p-5">
                             <div class="row justify-content-between">
                                 <div>
-                                    <h3 class="card-title">Game Name</h3>
+                                    <h3 class="card-title">`+game.name+`</h3>
                                     <p class="text-muted">Horas Jugadas: 0h 0min</p>
                                 </div>
-                                <div class="btn-group" role="group">
-                                    <button class="btn btn-sm btn-outline-light">&larr;ir a la
-                                        tienda</button>
-                                    <button class="btn btn-lg btn-outline-light">Jugar&rarr;</button>
+                                <div>
+                                    <a href="juego.html"><button onclick="setGame(`+gameID+`)" class="btn btn-sm btn-outline-light">&larr;ir a la tienda</button></a>
+                                    <button onclick="window.open('../../`+game.name+`/index.html')" class="btn btn-lg btn-outline-light">Jugar&rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -236,9 +238,8 @@ function initLibrary() {
                 </div>
             </div>
         </div>`;
-    }
+    });
     document.getElementById("library").innerHTML = library;
-
 }
 
 function initProfile(){
@@ -285,10 +286,10 @@ function initProfile(){
     </div>`;
 }
 
-function initGame(i) {
-    game = JSON.parse(localStorage.getItem('games'))[i];
-    document.getElementById("contenido").outerHTML = `
-    <div class="container-fluid p-0" id="contenido">
+function initGame() {
+    game = JSON.parse(localStorage.getItem('game'));
+    document.getElementById("body").innerHTML = `<div class="container-fluid p-0" id="contenido"></div>`;
+    document.getElementById("contenido").innerHTML = `
     <!-- Capturas -->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" id="screenshots"></div>
@@ -312,8 +313,8 @@ function initGame(i) {
             $ `+game.price+` COL
         </h3>
         <div class="btn-group mb-5" role="group">
-            <button onclick="initStore()" class="btn btn-outline-light btn-sm"> &larr;Volver a la Tienda </button>
-            <button class="btn btn-outline-light btn-lg">Obtener&rarr;</button>
+            <a href="tienda.html" class="btn btn-outline-light btn-lg">&larr;Volver a la Tienda</a>
+            <a class="btn btn-outline-light btn-lg">Obtener&rarr;</a>
         </div>
 
         <!-- Acerca -->
@@ -355,7 +356,7 @@ function initGame(i) {
                 </div>
             </div>
         </div>
-    </div></div>`;
+    </div>`;
 
     // construir capturas
     screenshots = "";
@@ -382,4 +383,8 @@ function initGame(i) {
         </div>`;
     }
     document.getElementById("ratings").innerHTML = ratings;
+}
+
+function setGame(i){
+    localStorage.setItem('game',JSON.stringify(JSON.parse(localStorage.getItem('games'))[i]));
 }
