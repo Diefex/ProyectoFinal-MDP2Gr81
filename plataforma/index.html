@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MDP2Games</title>
+
+    <!-- Estilos -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Adicional -->
+    <link rel="stylesheet" href="css/aditionalStyle.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="imgs/2G.png">
+</head>
+
+<body class="bg-darker text-center text-light p-5">
+    <img class="mb-4" src="imgs/MPD2G.png">
+    <div class="container w-25" id="form">
+        <form class="form-signin" id="login">
+            <h1 class="h3 mb-3 font-weight-normal">Por favor Ingrese</h1>
+            <label for="inputUserEmail" class="sr-only">Usuario</label>
+            <input type="text" name="user" class="form-control my-3" placeholder="Usuario" required=""
+                autofocus="">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="pass" class="form-control my-3" placeholder="Contraseña" required="">
+            <button class="btn btn-lg btn-outline-light btn-block my-3" type="submit">Ingresar</button>
+            <p class="mt-5 mb-3 text-muted">© 2029</p>
+        </form>
+    </div>
     <!-- Scripts -->
 
-    <!-- Inicializacion de los juegos-->
+    <!-- Inicializacion de los juegos -->
     <script src="js/gameFactory.js"></script>
-    <meta http-equiv="refresh" content="2; URL=secciones/tienda.html">
-</head>
-<body>
-    
+
+    <!-- Inicializacion de los Usuarios -->
+    <script src="js/users.js"></script>
+
 </body>
+
 </html>
