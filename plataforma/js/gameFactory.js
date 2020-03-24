@@ -131,6 +131,43 @@ function createGames() {
             gra_rec: 'GeForce GTX 1080Ti',
             sto_rec: '50 MB'
         }
+	
+	{
+            name: 'Flappy Mario',
+            description: 'Una version del famoso Flappy bird pero ahora el portagonista es nuestro fabuloso Mario Bros, ¿podras con el reto?',
+            price: 5500,
+            developer: 'Juan Pablo Parra',
+            tags: 'plataformas, lateral',
+            date: '23/03/2020',
+            OS_min: 'Windows 10',
+            pro_min: 'Intel Core2 Duo E8400, 2.0GHz o AMD Athlon 64 X2 6000+, 2.0GHz',
+            ram_min: '2 GB',
+            gra_min: 'Geforce 9600 GT o AMD HD 3870 512MB',
+            sto_min: '2.5 MB',
+            OS_rec: 'Windows / Mac OS',
+            pro_rec: 'Intel Core i5 Duo E8400, 2.0GHz o AMD Ryzen3, 4.0GHz',
+            ram_rec: '2 GB',
+            gra_rec: 'GeForce GTX 1070',
+            sto_rec: '45 MB'
+        },
+{
+            name: 'Mario El Esquivador',
+            description: 'Mario tiene que escapar de las garras de su villano y solo cuenta con la habilidad de salto de su fiel compañero yoshi, esquiva los cañones como si tu vida dependiera de eso',
+            price: 8900,
+            developer: 'Juan Pablo Parra',
+            tags: 'plataformas, lateral',
+            date: '23/03/2020',
+            OS_min: 'Windows 10',
+            pro_min: 'Intel Core5 Duo E8400, 2.0GHz',
+            ram_min: '1 GB',
+            gra_min: 'Geforce 8600 GT o AMD HD 3770 512MB',
+            sto_min: '3.4 MB',
+            OS_rec: 'Windows / Mac OS',
+            pro_rec: 'Intel Core i7 Duo U8500, 2.0GHz o AMD Ryzen3, 4.0GHz',
+            ram_rec: '4 GB',
+            gra_rec: 'GeForce GTX 1060',
+            sto_rec: '68 MB'
+        },
     ];
 
     localStorage.setItem('games', JSON.stringify(games));
