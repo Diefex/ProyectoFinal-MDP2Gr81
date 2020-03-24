@@ -130,9 +130,9 @@ function createGames() {
             ram_rec: '4 GB',
             gra_rec: 'GeForce GTX 1080Ti',
             sto_rec: '50 MB'
-        }
-	
-	{
+        },
+
+        {
             name: 'Flappy Mario',
             description: 'Una version del famoso Flappy bird pero ahora el portagonista es nuestro fabuloso Mario Bros, ¿podras con el reto?',
             price: 5500,
@@ -150,7 +150,7 @@ function createGames() {
             gra_rec: 'GeForce GTX 1070',
             sto_rec: '45 MB'
         },
-{
+        {
             name: 'Mario El Esquivador',
             description: 'Mario tiene que escapar de las garras de su villano y solo cuenta con la habilidad de salto de su fiel compañero yoshi, esquiva los cañones como si tu vida dependiera de eso',
             price: 8900,
