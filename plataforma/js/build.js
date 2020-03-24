@@ -49,8 +49,8 @@ function init(section) {
     document.getElementById("body").innerHTML += `
     <!-- Footer -->
     <footer class="text-muted" id="footer">
-        <div class="container">
-            <p>Por: Diego Velez</p>
+        <div class="container text-center">
+            <p>© MDP2Games - 2020</p>
         </div>
     </footer>`;
 }
@@ -60,12 +60,6 @@ function initStore() {
     document.getElementById("contenido").innerHTML = `
     <!-- Contenido -->
     <div class="container-fluid my-2 p-md-5" id="contenido">
-
-        <!-- Buscador -->
-        <div class="container">
-            <input class="form-control mx-sm-2 text-light bg-dark" type="search" placeholder="Busca juegos en la tienda"
-                aria-label="Search">
-        </div>
 
         <!-- Sugerencias -->
         <div class="container my-5">
@@ -93,38 +87,40 @@ function initStore() {
     </div>`;
 
     // construir sugerencias
+    user = JSON.parse(localStorage.getItem('user'));
+    games = JSON.parse(localStorage.getItem('games'));
+    idsSug = getSuggest(user);
     suggest = "";
     indicators = "";
-    for (let i = 0; i < 5; i++) {
+    i = 0;
+    idsSug.forEach(id => {
         indicators += `<li data-target="#carouselExampleIndicators" data-slide-to="` + i + `" ` + (i == 0 ? 'class="active"' : "") + `></li>`
         suggest += `
         <div class="carousel-item `+ (i == 0 ? "active" : "") + `">
             <div class="row vh-25">
                 <div class="col">
-                    <img src="https://picsum.photos/100`+i+`/500" class="d-block w-100" alt="...">
+                    <img src="../`+games[id].name+`/capturas/1000x300.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="col-md-4 text-light bg-dark container">
                     <div class="container p-3">
-                        <div class="title">Game Name</div>
-                        <div> Descripcion, Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
-                            illo perferendis! Eveniet quibusdam hic veritatis quos impedit obcaecati
-                            minima labore doloribus nostrum temporibus harum, dolorum repudiandae facere
-                            dicta, perferendis optio. </div>
+                        <div class="title">`+games[id].name+`</div>
+                        <div>`+games[id].description+`</div>
 
-                        <div class="row justify-content-between">
-                            <div class="price m-2">$1000 COL</div> <button
-                                class="btn btn-outline-light m-3">Ver&rarr;</button>
+                        <div class="row justify-content-between p-5">
+                            <div class="price m-2">$`+games[id].price+` COL</div> 
+                            <a href="juego.html"><button onclick="setGame(`+id+`)" class="btn btn-outline-light">Ver&rarr;</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>`;
-    }
+        i++;
+    });
     document.getElementById("suggest").innerHTML = suggest;
     document.getElementById("indicators").innerHTML = indicators;
 
     // construir catalogo
-    games = JSON.parse(localStorage.getItem('games'));
+    
     catalog = "";
     i = 0;
     games.forEach(game => {
@@ -173,12 +169,6 @@ function initLibrary() {
             </div>
         </div>
 
-        <!-- Buscador -->
-        <div class="container my-5">
-            <input class="form-control mx-sm-2 text-light bg-dark" type="search"
-                placeholder="Busca juegos en tu biblioteca" aria-label="Search">
-        </div>
-
         <!-- Biblioteca -->
         <div class="container my-5">
             <div class="container m-1">
@@ -190,17 +180,16 @@ function initLibrary() {
         </div>`;
 
     // Construir Inicio Rapido
-
     fast = "";
     for (let i = 0; i < 2; i++) {
+        gameName = JSON.parse(localStorage.getItem('games'))[user.last_game[i]].name;
         fast += `
         <div class="col">
             <div class="card bg-dark text-white">
-                <img src="https://picsum.photos/100`+i+`/300" class="card-img" alt="...">
+                <img src="../`+gameName+`/capturas/1000x300.png" class="card-img" alt="...">
                 <div class="card-img-overlay">
-                    <h3 class="card-title">Game Name</h3>
-                    <p class="card-text text-muted">última vez: 01 ene 2020</p>
-                    <button class="btn btn-light">Iniciar&rarr;</button>
+                    <h3 class="card-title">`+gameName+`</h3>
+                    <button onclick="startGame(`+user.last_game[i]+`)" class="btn btn-light">Iniciar&rarr;</button>
                 </div>
             </div>
         </div>`;
@@ -223,7 +212,6 @@ function initLibrary() {
                             <div class="row justify-content-between">
                                 <div>
                                     <h3 class="card-title">`+game.name+`</h3>
-                                    <p class="text-muted">Horas Jugadas: 0h 0min</p>
                                 </div>
                                 <div>
                                     <a href="juego.html"><button onclick="setGame(`+gameID+`)" class="btn btn-sm btn-outline-light">&larr;ir a la tienda</button></a>
